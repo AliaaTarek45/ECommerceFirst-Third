@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Infrastructure.Repositories
 {
-    public class GenericRepository<TEntity, TKey>(StoreDbContext dbContext) : IGenericRepository<TEntity, TKey> where TEntity : BaseEntity<TKey>
+    internal class GenericRepository<TEntity, TKey>(StoreDbContext dbContext) : IGenericRepository<TEntity, TKey> where TEntity : BaseEntity<TKey>
     {
         public Task AddAsync(TEntity entity, CancellationToken cancellationToken = default)
             => dbContext.Set<TEntity>().AddAsync(entity, cancellationToken).AsTask();

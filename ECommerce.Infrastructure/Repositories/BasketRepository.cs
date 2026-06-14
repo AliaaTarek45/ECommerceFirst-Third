@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace ECommerce.Infrastructure.Repositories
 {
-    public class BasketRepository(IConnectionMultiplexer connection) : IBasketRepository
+    internal class BasketRepository(IConnectionMultiplexer connection) : IBasketRepository
     {
         private readonly IDatabase _database = connection.GetDatabase();
 

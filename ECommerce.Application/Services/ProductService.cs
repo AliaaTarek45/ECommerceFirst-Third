@@ -8,7 +8,7 @@ using ECommerce.Domain.Entities.Products;
 
 namespace ECommerce.Application.Services
 {
-    public class ProductService : IProductService
+    internal class ProductService : IProductService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;

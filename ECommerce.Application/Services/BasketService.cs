@@ -7,7 +7,7 @@ using ECommerce.Domain.Entities.Baskets;
 
 namespace ECommerce.Application.Services
 {
-    public class BasketService(IBasketRepository basketRepository, IMapper mapper) : IBasketService
+    internal class BasketService(IBasketRepository basketRepository, IMapper mapper) : IBasketService
     {
         public async Task<Result<BasketDto>> CreateOrUpdateBasketAsync(BasketDto basket, CancellationToken cancellationToken = default)
         {

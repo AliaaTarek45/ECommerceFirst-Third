@@ -4,7 +4,7 @@ using ECommerce.Infrastructure.Data;
 
 namespace ECommerce.Infrastructure.Repositories
 {
-    public class UnitOfWork : IUnitOfWork
+    internal class UnitOfWork : IUnitOfWork
     {
         private readonly StoreDbContext _dbContext;
         private readonly Dictionary<string, object> repositories = [];

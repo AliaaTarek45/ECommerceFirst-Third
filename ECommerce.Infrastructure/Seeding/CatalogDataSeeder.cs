@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace ECommerce.Infrastructure.Seeding
 {
-    public class CatalogDataSeeder(StoreDbContext dbContext, ILogger<CatalogDataSeeder> logger) : IDataSeeder
+    internal class CatalogDataSeeder(StoreDbContext dbContext, ILogger<CatalogDataSeeder> logger) : IDataSeeder
     {
         public async Task SeedAsync(CancellationToken cancellationToken = default)
         {
