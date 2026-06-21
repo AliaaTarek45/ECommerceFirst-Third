@@ -8,11 +8,11 @@ namespace ECommerce.Api.Controllers;
 public class ProductsController(IProductService productService) : ApiBaseController
 {
     [HttpGet]
-    [ProducesResponseType(typeof(Result<ProductDto>), StatusCodes.Status200OK)]
-    public async Task<ActionResult<Result<ProductDto>>> GetAllProducts([FromQuery] ProductQueryParams queryParams, CancellationToken cancellationToken)
+    [ProducesResponseType(typeof(PaginatedResult<ProductDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<PaginatedResult<ProductDto>>> GetAllProducts([FromQuery] ProductQueryParams queryParams, CancellationToken cancellationToken)
     {
         var products = await productService.GetAllProductsAsync(queryParams, cancellationToken);
-        return Ok(products);
+        return ToActionResult(products);
     }
 
     [HttpGet("{id:int}")]
