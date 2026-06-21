@@ -38,8 +38,9 @@ namespace ECommerce.Application.Services
 
             var products = await repo.GetAllAsync(new ProductWithBrandAndTypeSpecifications(queryParams), cancellationToken);
             var data = _mapper.Map<IReadOnlyList<ProductDto>>(products);
-
-            return Result<PaginatedResult<ProductDto>>.Ok(new PaginatedResult<ProductDto>(queryParams.PageNumber, queryParams.PageSize, products.Count(), data));
+            var countSpec = new ProductCountSpecifications(queryParams);
+            var countOfAllProducts = await repo.CountAsync(countSpec);
+            return Result<PaginatedResult<ProductDto>>.Ok(new PaginatedResult<ProductDto>(queryParams.PageNumber, queryParams.PageSize, countOfAllProducts, data));
         }
         public async Task<Result<ProductDto>> GetProductAsync(int id, CancellationToken cancellationToken = default)
         {

@@ -25,7 +25,7 @@ namespace ECommerce.Infrastructure.Repositories
         public async Task<IReadOnlyList<TEntity>> GetAllAsync(ISpecifications<TEntity, TKey> specifications, CancellationToken cancellationToken = default)
             => await SpecificationEvaluator.CreateQuery(dbContext.Set<TEntity>(), specifications).ToListAsync(cancellationToken);
 
-        public Task<int> CountAsync(ISpecifications<TEntity, TKey> specifications, CancellationToken cancellationToken = default)
-            => SpecificationEvaluator.CreateQuery(dbContext.Set<TEntity>(), specifications).CountAsync(cancellationToken);
+        public async Task<int> CountAsync(ISpecifications<TEntity, TKey> specifications, CancellationToken cancellationToken = default)
+            => await SpecificationEvaluator.CreateQuery(dbContext.Set<TEntity>(), specifications).CountAsync(cancellationToken);
     }
 }
