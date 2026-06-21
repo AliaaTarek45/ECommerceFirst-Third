@@ -3,7 +3,7 @@ using ECommerce.Domain.Entities.Products;
 
 namespace ECommerce.Application.Specifications
 {
-    public class ProductCountSpecifications : BaseSpecifications<Product, int>
+    internal class ProductCountSpecifications : BaseSpecifications<Product, int>
     {
         public ProductCountSpecifications(ProductQueryParams queryParams)
             : base(p => (!queryParams.BrandId.HasValue || p.BrandId == queryParams.BrandId)

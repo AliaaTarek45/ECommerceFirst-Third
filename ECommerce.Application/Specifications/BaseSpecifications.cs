@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace ECommerce.Application.Specifications
 {
-    public abstract class BaseSpecifications<TEntity, TKey> : ISpecifications<TEntity, TKey> where TEntity : BaseEntity<TKey>
+    internal abstract class BaseSpecifications<TEntity, TKey> : ISpecifications<TEntity, TKey> where TEntity : BaseEntity<TKey>
     {
         protected BaseSpecifications(Expression<Func<TEntity, bool>>? criteria = null)
         {

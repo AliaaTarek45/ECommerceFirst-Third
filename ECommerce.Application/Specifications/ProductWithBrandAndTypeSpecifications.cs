@@ -3,7 +3,7 @@ using ECommerce.Domain.Entities.Products;
 
 namespace ECommerce.Application.Specifications
 {
-    public class ProductWithBrandAndTypeSpecifications : BaseSpecifications<Product, int>
+    internal class ProductWithBrandAndTypeSpecifications : BaseSpecifications<Product, int>
     {
         public ProductWithBrandAndTypeSpecifications(ProductQueryParams queryParams)
             : base(p =>
